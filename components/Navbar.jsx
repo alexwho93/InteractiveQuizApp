@@ -35,6 +35,16 @@ function Navbar() {
                 Categorii
               </Link>
             </li>
+            <li>
+              <Link
+                href="/add-question"
+                className={
+                  isCurrentPage("/add-question") ? linkStylesActive : linkStyles
+                }
+              >
+                Adauga Intrebari
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

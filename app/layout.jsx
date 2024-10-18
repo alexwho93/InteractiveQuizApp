@@ -1,5 +1,6 @@
 import "./globals.css";
-import Navbar from "./Navbar";
+import Navbar from "@components/Navbar";
+import { ScoreProvider } from "@context/ScoreContext";
 
 export const metadata = {
   title: "Quiz App",
@@ -10,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700">
         <Navbar />
-        {children}
+        <ScoreProvider>{children}</ScoreProvider>
       </body>
     </html>
   );

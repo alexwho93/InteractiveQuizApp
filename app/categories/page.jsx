@@ -1,9 +1,22 @@
+"use client";
 import Link from "next/link";
-import { getQuestions } from "/app/data/getQuestions";
+import { useEffect, useState } from "react";
 
-export default async function Categories() {
-  const questions = await getQuestions();
-  const categories = Object.keys(questions);
+export default function Categories() {
+  const [categories, setCategories] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/questions")
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(Object.keys(data));
+        setLoading(false);
+      });
+  }, []);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (!categories) return <p>No data</p>;
 
   return (
     <div className="h-screen flex items-center justify-center">

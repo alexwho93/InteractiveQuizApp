@@ -1,19 +1,14 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useScore } from "@/context/ScoreContext";
 
 function FinalScore({ totalQuestions }) {
-  const score =
-    typeof window !== "undefined" ? sessionStorage.getItem("score") : 0;
+  const { score, resetScore } = useScore();
+
   const feedbackMessage =
     score / totalQuestions > 0.8
       ? "Excelent! Ai făcut o treabă grozavă!"
       : "Bine lucrat! Continuă să exersezi și vei deveni și mai bun!";
-
-  useEffect(() => {
-    sessionStorage.setItem("score", "0");
-  }, []);
 
   return (
     <div className="h-screen flex items-center justify-center">
@@ -25,13 +20,14 @@ function FinalScore({ totalQuestions }) {
           Punctaj: <span className="text-green-500">{score}</span>
         </p>
         <p className="text-2xl text-gray-700 mb-4">
-          Numărul de răspunsuri corecte:{" "}
+          Numărul de răspunsuri corecte:
           <span className="text-green-500">{score}</span> din {totalQuestions}
         </p>
         <p className="text-xl text-gray-600">{feedbackMessage}</p>
         <Link
           className="block text-3xl font-medium text-sky-600 mt-4 hover:opacity-70"
           href={`/categories`}
+          onClick={() => resetScore()}
         >
           Intoarcete la categorii
         </Link>
