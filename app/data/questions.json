@@ -1,0 +1,90 @@
+{
+  "geografie": [
+    {
+      "question": "Care este cel mai mare ocean de pe Pământ?",
+      "options": [
+        "Oceanul Atlantic",
+        "Oceanul Indian",
+        "Oceanul Arctic",
+        "Oceanul Pacific"
+      ],
+      "correct_answer": "Oceanul Pacific"
+    },
+    {
+      "question": "Care este cel mai lung fluviu din lume?",
+      "options": [
+        "Fluviul Amazon",
+        "Fluviul Nil",
+        "Fluviul Mississippi",
+        "Fluviul Yangtze"
+      ],
+      "correct_answer": "Fluviul Nil"
+    },
+    {
+      "question": "Care este capitala Japoniei?",
+      "options": ["Kyoto", "Osaka", "Tokyo", "Hiroshima"],
+      "correct_answer": "Tokyo"
+    }
+  ],
+  "sport": [
+    {
+      "question": "Cât durează un maraton?",
+      "options": ["40 km", "42.195 km", "45 km", "50 km"],
+      "correct_answer": "42.195 km"
+    },
+    {
+      "question": "Care sunt cele cinci culori ale inelelor olimpice?",
+      "options": [
+        "Roșu, Albastru, Verde, Galben, Negru",
+        "Roșu, Albastru, Verde, Galben, Alb",
+        "Roșu, Albastru, Verde, Galben, Portocaliu",
+        "Roșu, Albastru, Verde, Galben, Violet"
+      ],
+      "correct_answer": "Roșu, Albastru, Verde, Galben, Negru"
+    },
+    {
+      "question": "În ce sport ai avea un touchdown?",
+      "options": ["Fotbal", "Rugby", "Fotbal american", "Baschet"],
+      "correct_answer": "Fotbal american"
+    }
+  ],
+  "anatomie": [
+    {
+      "question": "Care este cel mai mare organ din corpul uman?",
+      "options": ["Inima", "Ficatul", "Pielea", "Creierul"],
+      "correct_answer": "Pielea"
+    },
+    {
+      "question": "Ce os din corpul uman nu este conectat la niciun alt os?",
+      "options": ["Femurul", "Hioidul", "Tibia", "Radiusul"],
+      "correct_answer": "Hioidul"
+    },
+    {
+      "question": "Ce parte a creierului este responsabilă pentru reglarea homeostaziei, inclusiv temperatura corpului, foamea și setea?",
+      "options": [
+        "Cerebelul",
+        "Hipotalamusul",
+        "Trunchiul cerebral",
+        "Cortexul cerebral"
+      ],
+      "correct_answer": "Hipotalamusul"
+    }
+  ],
+  "chimie": [
+    {
+      "question": "Care este simbolul chimic pentru aur?",
+      "options": ["Au", "Ag", "Fe", "Pb"],
+      "correct_answer": "Au"
+    },
+    {
+      "question": "Ce gaz este necesar pentru procesul de fotosinteză?",
+      "options": ["Oxigen", "Dioxid de carbon", "Azot", "Hidrogen"],
+      "correct_answer": "Dioxid de carbon"
+    },
+    {
+      "question": "Ce element are cel mai mare număr atomic?",
+      "options": ["Uranium", "Plutoniu", "Oganesson", "Radon"],
+      "correct_answer": "Oganesson"
+    }
+  ]
+}
