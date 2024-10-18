@@ -7,12 +7,15 @@ export default function Categories() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/questions")
-      .then((res) => res.json())
-      .then((data) => {
+    (async () => {
+      try {
+        const res = await fetch("/api/questions");
+        const data = await res.json();
         setCategories(Object.keys(data));
+      } finally {
         setLoading(false);
-      });
+      }
+    })();
   }, []);
 
   if (isLoading) return <p>Loading...</p>;

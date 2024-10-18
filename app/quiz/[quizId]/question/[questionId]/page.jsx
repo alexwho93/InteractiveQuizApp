@@ -14,27 +14,47 @@ export default function Question({ params }) {
   const { quizId, questionId } = params;
 
   useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem("questions")) || "";
-    let localQuestions;
-    if (Object.keys(localData).includes(quizId)) {
-      localQuestions = localData[quizId];
-    }
+    (async () => {
+      try {
+        // Fetch API data first
+        const res = await fetch(`/api/questions/${quizId}`);
+        const allData = await res.json();
 
-    fetch(`/api/questions/${quizId}`)
-      .then((res) => res.json())
-      .then((allData) => {
-        localQuestions
-          ? setQuestions([...allData.data, ...localQuestions])
-          : setQuestions([...allData.data]);
+        // Then get local storage data
+        const localData = JSON.parse(localStorage.getItem("questions")) || {};
+        const localQuestions = Object.keys(localData).includes(quizId)
+          ? localData[quizId]
+          : [];
+
+        // Combine API data and local storage data
+        setQuestions([...allData.data, ...localQuestions]);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+        // Handle error, maybe set an error state
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    })();
+  }, [quizId]);
 
-  // wait for data
-  if (isLoading) return <p>Loading...</p>;
-  if (!questions) return <p>No data</p>;
+  // Wait for data
 
-  // when questions are finished
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-75"></div>
+      </div>
+    );
+  if (!questions)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-center text-lg text-red-500">
+          No data found for this quiz.
+        </p>
+      </div>
+    );
+
+  // When questions are finished
   const question = questions[questionId - 1];
   if (!question && questions.length + 1 >= questionId && questionId > 0) {
     return <FinalScore totalQuestions={questions.length}></FinalScore>;

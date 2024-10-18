@@ -44,6 +44,7 @@ function Questionnaire({
                 type="radio"
                 name="userAnswer"
                 value={option}
+                disabled={showFeedback}
                 required
               />
               {option}
