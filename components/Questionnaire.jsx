@@ -1,23 +1,15 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
-import FinalScore from "./FinalScore";
 
-function Questionnaire({ question, category, questionId, questionsLength }) {
+function Questionnaire({
+  question,
+  questionId,
+  questionsLength,
+  nextLink,
+  increaseScore,
+}) {
   const [isCorrect, setIsCorrect] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
-
-  const increaseScore = () => {
-    if (!sessionStorage.getItem("score")) {
-      sessionStorage.setItem("score", "0");
-    }
-    sessionStorage.setItem(
-      "score",
-      String(Number(sessionStorage.getItem("score")) + 1)
-    );
-  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,9 +23,7 @@ function Questionnaire({ question, category, questionId, questionsLength }) {
     setShowFeedback(true);
   }
 
-  return questionId > questionsLength ? (
-    <FinalScore totalQuestions={questionsLength} />
-  ) : (
+  return (
     <form
       onSubmit={handleSubmit}
       className="max-w-2xl py-6 px-8 bg-white bg-opacity-75 shadow-md rounded-lg"
@@ -54,6 +44,7 @@ function Questionnaire({ question, category, questionId, questionsLength }) {
                 type="radio"
                 name="userAnswer"
                 value={option}
+                disabled={showFeedback}
                 required
               />
               {option}
@@ -75,8 +66,9 @@ function Questionnaire({ question, category, questionId, questionsLength }) {
 
         {showFeedback ? (
           <Link
-            href={`/quiz/${category}/question/${Number(questionId) + 1}`}
+            href={nextLink}
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 cursor-pointer col-span-2 w-64 mx-auto text-center"
+            replace
           >
             Next
           </Link>
