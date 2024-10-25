@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <span style="color: green;">Chestionar de Cultură Generală</span>
 
-## Getting Started
+Acest proiect este un chestionar de cultură generală dezvoltat folosind [Next.js](https://nextjs.org/). Acesta oferă utilizatorilor o serie de întrebări cu răspunsuri multiple pentru a le testa cunoștințele în diverse domenii.
+diverse domenii.
 
-First, run the development server:
+Proiectul utilizează [Tailwind CSS](https://tailwindcss.com/) pentru stilizare rapidă și eficientă.
+
+![Screenshot 1](./screenshots/screenshot-questions.png)
+
+## Începe
+
+Pentru a porni serverul de dezvoltare cu Node, rulează:
 
 ```bash
+npm i
+# Instalează dependencies
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Pornește serverul
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deschide http://localhost:3000 în browser pentru a vedea rezultatul.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Poți începe editarea paginii modificând app/page.js.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Funcționalități:
 
-## Learn More
+- Întrebări cu răspunsuri multiple
 
-To learn more about Next.js, take a look at the following resources:
+- Sistem de scor pentru a urmări performanța utilizatorului
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Rutare dinamică pentru întrebările chestionarului
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contribuții
 
-## Deploy on Vercel
+Contribuțiile sunt binevenite! Dacă dorești să contribui la acest proiect, urmează acești pași:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork la acest repo
+2. Creează o ramură nouă (`git checkout -b feature/noua-funcționalitate`)
+3. Fă commit pentru schimbările tale (`git commit -m 'Adaugă funcționalitatea X'`)
+4. Fă push pe ramura ta (`git push origin feature/noua-funcționalitate`)
+5. Deschide un Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Licență
+
+Acest proiect este licențiat sub Licența MIT. Vezi fișierul [LICENSE](./LICENSE) pentru mai multe detalii.

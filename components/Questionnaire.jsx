@@ -31,7 +31,7 @@ function Questionnaire({
       <fieldset className="grid grid-cols-2 auto-rows-auto gap-6 text-2xl items-center">
         <legend className="text-3xl font-extrabold text-center col-span-2 text-gray-800 mb-8">
           <span className="text-2xl">
-            (Intrebarea nr. {questionId} din {questionsLength})
+            (Intrebarea {questionId} din {questionsLength})
           </span>
           <br />
           {question.question}
