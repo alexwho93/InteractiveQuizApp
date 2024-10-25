@@ -1,4 +1,4 @@
-# <span style="color: green;">Chestionar de Cultură Generală</span>
+## Chestionar de Cultură Generală
 
 Acest proiect este un chestionar de cultură generală dezvoltat folosind [Next.js](https://nextjs.org/). Acesta oferă utilizatorilor o serie de întrebări cu răspunsuri multiple pentru a le testa cunoștințele în diverse domenii.
 diverse domenii.

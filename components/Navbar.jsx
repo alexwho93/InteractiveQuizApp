@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 function Navbar() {
-  const isCurrentPage = (href) => href === usePathname();
+  const pathname = usePathname();
+  const isCurrentPage = (href) => href === pathname;
   const linkStyles =
     "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0";
   const linkStylesActive =
