@@ -12,18 +12,19 @@ export default function AddQuestionForm() {
   });
 
   useEffect(() => {
-    // IIFE to fetch categories
-    (async () => {
+    const fetchCategories = async () => {
       try {
-        const res = await fetch("/api/questions");
+        const res = await fetch("/api/questions/categories");
         const data = await res.json();
-        setCategories(Object.keys(data));
+        Object.keys(data).length !== 0 && setCategories(data);
       } catch (error) {
         console.error("Fetching error:", error);
       } finally {
         setLoading(false);
       }
-    })();
+    };
+
+    fetchCategories();
   }, []);
 
   const handleInputChange = (e) => {
@@ -88,7 +89,11 @@ export default function AddQuestionForm() {
               required
               className="border p-2"
             >
-              <option value="">Selecteaza o categorie</option>
+              <option value="">
+                {categories.length === 0
+                  ? "Nu s-au gasit categorii"
+                  : "Selecteaza o categorie"}
+              </option>
               {categories.map((category) => (
                 <option key={category} value={category}>
                   {category.charAt(0).toUpperCase() + category.slice(1)}

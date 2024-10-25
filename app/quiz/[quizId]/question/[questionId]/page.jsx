@@ -14,31 +14,26 @@ export default function Question({ params }) {
   const { quizId, questionId } = params;
 
   useEffect(() => {
-    (async () => {
+    const fetchQuestions = async () => {
       try {
-        // Fetch API data first
         const res = await fetch(`/api/questions/${quizId}`);
         const allData = await res.json();
 
-        // Then get local storage data
         const localData = JSON.parse(localStorage.getItem("questions")) || {};
-        const localQuestions = Object.keys(localData).includes(quizId)
-          ? localData[quizId]
-          : [];
+        const localQuestions = quizId in localData ? localData[quizId] : [];
 
-        // Combine API data and local storage data
         setQuestions([...allData.data, ...localQuestions]);
       } catch (error) {
         console.error("Error fetching questions:", error);
-        // Handle error, maybe set an error state
       } finally {
         setLoading(false);
       }
-    })();
+    };
+
+    fetchQuestions();
   }, [quizId]);
 
   // Wait for data
-
   if (isLoading)
     return (
       <div className="flex justify-center items-center h-screen">
