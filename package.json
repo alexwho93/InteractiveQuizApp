@@ -1,5 +1,5 @@
 {
-  "name": "quzz-app-2",
+  "name": "interactive-quizz-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "flowbite": "^2.5.2",
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18"
