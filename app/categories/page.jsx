@@ -7,19 +7,33 @@ export default function Categories() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    (async () => {
+    const fetchCategories = async () => {
       try {
-        const res = await fetch("/api/questions");
+        const res = await fetch("/api/questions/categories");
         const data = await res.json();
-        setCategories(Object.keys(data));
+        Object.keys(data).length !== 0 && setCategories(data);
+      } catch (error) {
+        console.error("Fetching error:", error);
       } finally {
         setLoading(false);
       }
-    })();
+    };
+
+    fetchCategories();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (!categories) return <p>No data</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-75"></div>
+      </div>
+    );
+  if (!categories)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-center text-lg text-red-500">No categories found.</p>
+      </div>
+    );
 
   return (
     <div className="h-screen flex items-center justify-center">
